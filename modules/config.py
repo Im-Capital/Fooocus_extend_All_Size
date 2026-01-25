@@ -502,7 +502,7 @@ available_aspect_ratios = get_config_item_or_set_default(
 )
 default_aspect_ratio = get_config_item_or_set_default(
     key='default_aspect_ratio',
-    default_value='1920x1080' if '1080x1920' in available_aspect_ratios else available_aspect_ratios[0],
+    default_value='1152*896' if '1152*896' in available_aspect_ratios else available_aspect_ratios[0],
     validator=lambda x: x in available_aspect_ratios,
     expected_type=str
 )
@@ -1127,3 +1127,4 @@ def downloading_inswapper():
     )
 
     return
+
