@@ -105,7 +105,7 @@ describe_type_anime = 'Art/Anime'
 describe_types = [describe_type_photo, describe_type_anime]
 
 sdxl_aspect_ratios = [
-    '704*1408', '704*1344', '768*1344', '768*1280', '832*1216', '832*1152',
+    '1920x1080', '1080x1920', '704*1408', '704*1344', '768*1344', '768*1280', '832*1216', '832*1152',
     '896*1152', '896*1088', '960*1088', '960*1024', '1024*1024', '1024*960',
     '1088*960', '1088*896', '1152*896', '1152*832', '1216*832', '1280*768',
     '1344*768', '1344*704', '1408*704', '1472*704', '1536*640', '1600*640',
@@ -143,8 +143,8 @@ class PerformanceLoRA(Enum):
 
 
 class Steps(IntEnum):
-    QUALITY = 60
-    SPEED = 30
+    QUALITY = 100
+    SPEED = 60
     EXTREME_SPEED = 8
     LIGHTNING = 4
     HYPER_SD = 4
@@ -155,8 +155,8 @@ class Steps(IntEnum):
 
 
 class StepsUOV(IntEnum):
-    QUALITY = 36
-    SPEED = 18
+    QUALITY = 60
+    SPEED = 30
     EXTREME_SPEED = 8
     LIGHTNING = 4
     HYPER_SD = 4
@@ -195,4 +195,5 @@ class Performance(Enum):
 
     def lora_filename(self) -> str | None:
         return PerformanceLoRA[self.name].value if self.name in PerformanceLoRA.__members__ else None
+
 
