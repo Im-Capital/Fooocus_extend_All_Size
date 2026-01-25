@@ -1,3 +1,8 @@
+
+Youtube Size Added Only - Potrait and Landscape
+
+
+
 I would like to introduce a new fork of the popular generative neural network **Fooocus - Fooocus extend**. 
 I would like to point out that this fork can be run both locally on your computer and via Google Colab. 
 Let's look at everything in order. 
