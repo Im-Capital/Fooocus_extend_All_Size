@@ -418,25 +418,25 @@ default_performance = get_config_item_or_set_default(
 )
 default_image_prompt_checkbox = get_config_item_or_set_default(
     key='default_image_prompt_checkbox',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
 default_enhance_checkbox = get_config_item_or_set_default(
     key='default_enhance_checkbox',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
 default_adetailer_checkbox = get_config_item_or_set_default(
     key='default_adetailer_checkbox',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
 default_advanced_checkbox = get_config_item_or_set_default(
     key='default_advanced_checkbox',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
@@ -448,7 +448,7 @@ default_developer_debug_mode_checkbox = get_config_item_or_set_default(
 )
 default_image_prompt_advanced_checkbox = get_config_item_or_set_default(
     key='default_image_prompt_advanced_checkbox',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
@@ -502,7 +502,7 @@ available_aspect_ratios = get_config_item_or_set_default(
 )
 default_aspect_ratio = get_config_item_or_set_default(
     key='default_aspect_ratio',
-    default_value='1152*896' if '1152*896' in available_aspect_ratios else available_aspect_ratios[0],
+    default_value='1920*1080' if '3840*2160' in available_aspect_ratios else available_aspect_ratios[0],
     validator=lambda x: x in available_aspect_ratios,
     expected_type=str
 )
@@ -571,7 +571,7 @@ for image_count in range(default_controlnet_image_count):
 
 default_inpaint_advanced_masking_checkbox = get_config_item_or_set_default(
     key='default_inpaint_advanced_masking_checkbox',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
@@ -625,7 +625,16 @@ default_overwrite_upscale = get_config_item_or_set_default(
 example_inpaint_prompts = get_config_item_or_set_default(
     key='example_inpaint_prompts',
     default_value=[
-        'highly detailed face', 'detailed girl face', 'detailed man face', 'detailed hand', 'beautiful eyes'
+        'highly detailed face', 'ultra realistic face', 'sharp facial features', 'symmetrical face',
+'detailed girl face', 'beautiful female face', 'soft feminine face',
+'detailed man face', 'strong masculine face', 'defined jawline',
+'detailed hand', 'realistic hand', 'perfect fingers', 'correct finger anatomy',
+'beautiful eyes', 'ultra detailed eyes', 'realistic eyes', 'sharp eye focus',
+'natural skin texture', 'smooth skin', 'realistic skin pores',
+'realistic lips', 'natural lips texture', 'soft lips',
+'ultra detailed hair', 'realistic hair strands',
+'cinematic lighting', 'soft natural light', 'high quality render',
+'no extra fingers', 'no deformed hands', 'no distorted face', 'clean inpainting'
     ],
     validator=lambda x: isinstance(x, list) and all(isinstance(v, str) for v in x),
     expected_type=list
@@ -633,7 +642,12 @@ example_inpaint_prompts = get_config_item_or_set_default(
 example_enhance_detection_prompts = get_config_item_or_set_default(
     key='example_enhance_detection_prompts',
     default_value=[
-        'face', 'eye', 'mouth', 'hair', 'hand', 'body'
+      'face', 'female face', 'male face', 'eyes', 'left eye', 'right eye',
+'mouth', 'lips', 'nose', 'jawline',
+'hair', 'hairline', 'eyebrows', 'eyelashes',
+'hand', 'left hand', 'right hand', 'fingers', 'thumb',
+'skin', 'forehead', 'cheek', 'chin',
+'neck', 'ear', 'ears'
     ],
     validator=lambda x: isinstance(x, list) and all(isinstance(v, str) for v in x),
     expected_type=list
@@ -676,13 +690,13 @@ default_black_out_nsfw = get_config_item_or_set_default(
 )
 default_save_only_final_enhanced_image = get_config_item_or_set_default(
     key='default_save_only_final_enhanced_image',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
 default_save_metadata_to_images = get_config_item_or_set_default(
     key='default_save_metadata_to_images',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
@@ -1105,4 +1119,5 @@ def downloading_inswapper():
         model_dir=path_clip_vision,
         file_name='inswapper_128.onnx'
     )
+
     return
